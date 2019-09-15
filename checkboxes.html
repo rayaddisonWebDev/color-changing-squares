@@ -1,90 +1,117 @@
 <!DOCTYPE html>
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- IMPORTANT NEW GOALS FOR UPDATING THIS WEBSITE -->
+<!-- FINISH THIS SITE TO PERFECTION -->
+<!-- Steps to finishing -->
+<!-- 1. Add a nice style to it -->
+<!-- 2. Change it from a text area to a div -->
+<!-- 3. Make it mobile friendly  -->
+<!-- 4. Add a random color generator option -->
+<!-- 5. Finishing touches if necessary -->
+<!--  -->
+<!--  -->
+<!--  -->
 <html lang="en" dir="ltr">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="checkboxes.js"></script>
+    <style type="text/css">
+      .rhighlighted {
+        background-color: Red;
+      }
 
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <script src="./jquery-3.4.1.min.js"></script>
-  <script src="checkboxes.js"></script>
-  <style type='text/css'>
-    .rhighlighted {
-      background-color: Red;
-    }
+      .bhighlighted {
+        background-color: blue;
+      }
 
-    .bhighlighted {
-      background-color: blue;
-    }
+      .yhighlighted {
+        background-color: yellow;
+      }
 
-    .yhighlighted {
-      background-color: yellow;
-    }
+      input {
+        zoom: 3;
+      }
 
-    input {
-      zoom: 3;
-    }
+      form {
+        margin-left: 30px;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title>CheckBoxes to Check</title>
+  </head>
 
-    form {
-      margin-left: 30px;
-    }
-  </style>
-  <meta charset="utf-8">
-  <title>CheckBoxes to Check</title>
-</head>
-
-<body>
-  <div class="ui container">
-    <h1>Welcome to the Color Changer</h1>
-    <p>Use the check boxes to change the color of the text area</p>
-    <p>The checkboxes use JQuery to add, toggle and remove classes based on check events</p>
-  </div>
-  <br />
-  <div class="ui container">
-    <div class="ui placeholder segment">
-      <div class="ui two column very relaxed stackable grid">
-        <div class="column">
-          <div class="ui form">
-            <form action="">
-
-              <div class="ui labeled input">
-                <div class="ui label">
-                  Red
+  <body>
+    <div class="ui container">
+      <h1>Welcome to the Color Changer</h1>
+      <p>Use the check boxes to change the color of the text area</p>
+      <p>
+        The checkboxes use JQuery to add, toggle and remove classes based on
+        check events
+      </p>
+    </div>
+    <br />
+    <div class="ui container">
+      <div class="ui placeholder segment">
+        <div class="ui two column very relaxed stackable grid">
+          <div class="column">
+            <div class="ui form">
+              <form action="">
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    Red
+                  </div>
+                  <input id="idRed" name="red" type="checkbox" />
                 </div>
-                <input id="idRed" name="red" type="checkbox">
-              </div>
 
-              <br />
-              <br />
+                <br />
+                <br />
 
-              <div class="ui labeled input">
-                <div class="ui label">
-                  Blue
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    Blue
+                  </div>
+                  <input id="idBlue" name="blue" type="checkbox" />
                 </div>
-                <input id="idBlue" name="blue" type="checkbox">
-              </div>
 
-              <br />
-              <br />
+                <br />
+                <br />
 
-              <div class="ui labeled input">
-                <div class="ui label">
-                  Yellow
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    Yellow
+                  </div>
+                  <input id="idYellow" name="yellow" type="checkbox" />
                 </div>
-                <input id="idYellow" name="yellow" type="checkbox">
-              </div>
 
-            </form>
+                <br />
+                <br />
+
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    Random
+                  </div>
+                  <input id="idRandom" name="random" type="checkbox" />
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="middle aligned column">
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <!-- consider making the square a div -->
           </div>
         </div>
-
-        <div class="middle aligned column">
-          <textarea name="" id="text" cols="30" rows="10"></textarea>
-          <!-- consider making the square a div -->
+        <div class="ui vertical divider">
+          Check and Change
         </div>
       </div>
-      <div class="ui vertical divider">
-        Check and Change
-      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

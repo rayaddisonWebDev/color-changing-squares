@@ -1,43 +1,73 @@
 //IT WORKS!!!
+$("document").ready(function() {
+  //generates a random color
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
-//1. Add event hendlers to textbox coming from check boxes
-//2. Set up the on change events
-//3. Make the changes happen
-//3.1. change text box color to desired color
-//3.2. make it so that checking off one box unchecks the others
-//3.3. make it so that checking off one box undoes any class changes applied by other checked boxes
-$("document").ready(function () {
+  //applies random color
+  function setRandomColor() {
+    $("#text").css("background-color", getRandomColor());
+  }
 
+  //removes random color
+  function getRidOfRandom() {
+    $("#text").removeAttr("style");
+  }
 
-    $("#idRed").on("change", function (evt) {
-        $('#text').toggleClass('rhighlighted');
-        $("#idBlue").prop("checked", false);
-        $("#idYellow").prop("checked", false);
+  //removes random color if the checked box is false
+  function checkIfRanIsTrue() {
+    if ($("#idRandom").prop("checked") == false) {
+      getRidOfRandom();
+    }
+  }
 
-        $('#text').removeClass('bhighlighted yhighlighted');
+  //makes all random check elements work on click
+  $("#idRandom").on("click", function(evt) {
+    setRandomColor();
+    checkIfRanIsTrue();
+    $("#idBlue").prop("checked", false);
+    $("#idYellow").prop("checked", false);
+    $("#idRed").prop("checked", false);
 
-    });
+    $("#text").removeClass("bhighlighted yhighlighted rhighlighted");
+  });
 
-    $("#idBlue").on("change", function (evt) {
-        $('#text').toggleClass('bhighlighted');
-        $("#idRed").prop("checked", false);
-        $("#idYellow").prop("checked", false);
+  //red
+  $("#idRed").on("change", function(evt) {
+    $("#text").toggleClass("rhighlighted");
+    $("#idBlue").prop("checked", false);
+    $("#idYellow").prop("checked", false);
+    $("#idRandom").prop("checked", false);
+    getRidOfRandom();
 
-        $('#text').removeClass('rhighlighted yhighlighted');
+    $("#text").removeClass("bhighlighted yhighlighted");
+  });
 
-    });
+  //blue
+  $("#idBlue").on("change", function(evt) {
+    $("#text").toggleClass("bhighlighted");
+    $("#idRed").prop("checked", false);
+    $("#idYellow").prop("checked", false);
+    $("#idRandom").prop("checked", false);
+    getRidOfRandom();
 
-    $("#idYellow").on("change", function (evt) {
-        $('#text').toggleClass('yhighlighted');
-        $("#idRed").prop("checked", false);
-        $("#idBlue").prop("checked", false);
+    $("#text").removeClass("rhighlighted yhighlighted");
+  });
 
-        $('#text').removeClass('rhighlighted bhighlighted');
+  //yellow
+  $("#idYellow").on("change", function(evt) {
+    $("#text").toggleClass("yhighlighted");
+    $("#idRed").prop("checked", false);
+    $("#idBlue").prop("checked", false);
+    $("#idRandom").prop("checked", false);
+    getRidOfRandom();
 
-    });
-
+    $("#text").removeClass("rhighlighted bhighlighted");
+  });
 });
-
-//add logic that unchecks the other boxes when one is checked.
-//add logic that removes the color class when the other is checked.
-//consider using a func that takes in a random data piece as a boolean to uncheck the boxes
